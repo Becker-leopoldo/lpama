@@ -34,7 +34,7 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(
-  '.servico-card, .case-item, .sobre-right p, .sobre-stats, .membro-card, .contato-left, .contato-right'
+  '.hero-text, .hero-photo, .servico-card, .case-item, .sobre-stats, .membro-card, .contato-left, .contato-right'
 ).forEach((el, i) => {
   el.classList.add('fade-up');
   if (i % 4 === 1) el.classList.add('delay-1');
@@ -56,14 +56,14 @@ form.addEventListener('submit', (e) => {
 
   if (!nome || !email || !mensagem) {
     feedback.textContent = 'Por favor, preencha os campos obrigatórios.';
-    feedback.style.color = '#ff8080';
+    feedback.style.color = 'var(--error)';
     return;
   }
 
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRe.test(email)) {
     feedback.textContent = 'Por favor, insira um e-mail válido.';
-    feedback.style.color = '#ff8080';
+    feedback.style.color = 'var(--error)';
     return;
   }
 
@@ -74,7 +74,7 @@ form.addEventListener('submit', (e) => {
   window.location.href = `mailto:michelle@mamartins.com.br?subject=${subject}&body=${body}`;
 
   feedback.textContent = 'Obrigado! Seu cliente de e-mail foi aberto.';
-  feedback.style.color = 'rgba(255,255,255,0.6)';
+  feedback.style.color = 'rgba(255, 255, 255, 0.68)';
   form.reset();
 });
 
